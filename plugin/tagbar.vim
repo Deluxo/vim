@@ -1,4 +1,4 @@
-map <F9> :TagbarOpenAutoClose<CR>
+map <F8> :TagbarOpenAutoClose<CR>
 let tlist_php_settings = 'php;c:class;f:function;d:constant'
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1

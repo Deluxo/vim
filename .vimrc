@@ -11,6 +11,8 @@ vnoremap <leader>s :sno///g<Left><Left><Left>
 vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
 nnoremap <Backspace> :w<CR>
+nnoremap dD V$%d
+nnoremap yY V$%y
 "window management"
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-k> :wincmd k<CR>
@@ -23,6 +25,10 @@ map QQ :bd<CR>
 "usability"
 nnoremap Q <Nop>
 map <F11> : !ctags
+map <Insert> :Gpush<CR>
+map <Delete> :Gpull<CR>
+map <PageUp> :Obsession! ~/.vim/session.vim<CR>
+map <PageDown> :source ~/.vim/session.vim<CR>
 
 "SETTINGS"
 "search"
@@ -58,12 +64,19 @@ set background=dark
 set tabstop=4
 set shiftwidth=4
 
-let g:kolor_italic=0
-let g:kolor_bold=1
-let g:kolor_underlined=1
-let g:kolor_alternative_matchparen=0
-colorscheme kolor
+"let g:kolor_italic=0
+"let g:kolor_bold=1
+"let g:kolor_underlined=1
+"let g:kolor_alternative_matchparen=0
+"colorscheme kolor
+
+color delek
+hi CursorLine cterm=none ctermbg=16
+hi StatusLine ctermbg=0
+hi StatusLineNC none ctermbg=0
+hi Tabline none
+hi TablineSel ctermfg=15
+hi TablineFill none
 
 "PATHOGEN"
-"
 execute pathogen#infect()
