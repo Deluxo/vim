@@ -32,6 +32,7 @@ map <PageDown> :source ~/.vim/session.vim<CR>
 
 "SETTINGS"
 "search"
+set lazyredraw
 set ignorecase
 set smartcase
 set incsearch
