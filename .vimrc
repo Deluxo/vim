@@ -38,6 +38,8 @@ set smartcase
 set incsearch
 set hlsearch
 "usability"
+set viminfo+=n/tmp/viminfo
+set noswapfile
 set scrolloff=10
 set relativenumber
 set fileencodings=utf-8
@@ -64,6 +66,10 @@ set wildmenu
 set background=dark
 set tabstop=4
 set shiftwidth=4
+set guioptions-=m "remove menu bar
+set guioptions-=T "remove toolbar
+set guioptions-=r "remove right-hand scroll bar
+set guioptions-=L "remove left-hand scroll bar
 
 "let g:kolor_italic=0
 "let g:kolor_bold=1
@@ -72,6 +78,7 @@ set shiftwidth=4
 "colorscheme kolor
 
 color delek
+hi FoldColumn ctermbg=none
 hi CursorLine cterm=none ctermbg=16
 hi StatusLine ctermbg=0
 hi StatusLineNC none ctermbg=0
