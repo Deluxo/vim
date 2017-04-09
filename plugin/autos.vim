@@ -14,4 +14,3 @@ function! DeleteEmptyBuffers()
 endfunction
 au BufHidden call DeleteEmptyBuffers()
 
-au FileType php set colorcolumn=120
