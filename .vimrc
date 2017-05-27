@@ -10,7 +10,7 @@ nnoremap <leader>s :%sno/<c-r><c-w>//g<Left><Left>
 vnoremap <leader>s :sno///g<Left><Left><Left>
 vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
-nnoremap <Backspace> :w<CR>
+nnoremap <Backspace> :wa<CR>
 nnoremap dD V$%d
 nnoremap yY V$%y
 "window management"
