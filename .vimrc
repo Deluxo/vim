@@ -8,6 +8,8 @@ let mapleader = '`'
 nnoremap <c-_> :let @/ = ""<CR>
 nnoremap <leader>s :%sno/<c-r><c-w>//g<Left><Left>
 vnoremap <leader>s :sno///g<Left><Left><Left>
+map <leader>cp :let @+ = expand("%:p")
+map <leader>cn :let @+ = expand("%:t")
 vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
 nnoremap <Backspace> :wa<CR>
@@ -19,8 +21,8 @@ nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 map <F3> :set scb!<CR>
-map <F2> :Ack ""<Left>
-map <leader><F2> :Ack "<c-r><c-w>"
+map <F2> :tabe <bar> :Ack ""<Left>
+map <leader><F2> :tabe <bar> :Ack "<c-r><c-w>"
 map QQ :bd<CR>
 "usability"
 nnoremap Q <Nop>
@@ -71,30 +73,7 @@ set guioptions-=T "remove toolbar
 set guioptions-=r "remove right-hand scroll bar
 set guioptions-=L "remove left-hand scroll bar
 
-"let g:kolor_italic=0
-"let g:kolor_bold=1
-"let g:kolor_underlined=1
-"let g:kolor_alternative_matchparen=0
-"colorscheme kolor
-
-color delek
-hi FoldColumn ctermbg=none
-hi CursorLine cterm=none ctermbg=16
-hi StatusLine ctermbg=0
-hi StatusLineNC none ctermbg=0
-hi VertSplit term=standout ctermfg=0
-hi Tabline none
-hi TablineSel ctermfg=15
-hi TablineFill none
-hi SpecialKey ctermfg=237
-hi NonText ctermfg=239
-hi ColorColumn ctermbg=237
-hi DiffAdd ctermbg=2
-hi DiffAdd ctermfg=0
-hi DiffDelete ctermbg=1
-hi DiffDelete ctermfg=0
-hi DiffChange ctermbg=3
-hi DiffChange ctermfg=0
+color simpleton
 
 "PATHOGEN"
 execute pathogen#infect()
