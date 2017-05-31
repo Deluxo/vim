@@ -1,7 +1,8 @@
 set laststatus=2
+set noshowmode
 
-"\ 'colorscheme': 'sialoquent',
 let g:lightline = {
+  \ 'colorscheme': 'wombat',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -19,4 +20,3 @@ let g:lightline = {
   \ 'separator': { 'left': '', 'right': '' },
   \ 'subseparator': { 'left': '∿', 'right': '❂' }
   \ }
-
