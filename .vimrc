@@ -12,7 +12,7 @@ map <leader>cp :let @+ = expand("%:p")
 map <leader>cn :let @+ = expand("%:t")
 vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
-nnoremap <Backspace> :wa<CR>
+nnoremap WW :wa<CR>
 nnoremap dD V$%d
 nnoremap yY V$%y
 "window management"
