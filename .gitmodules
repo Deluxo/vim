@@ -73,3 +73,6 @@
 [submodule "bundle/tagbar-phpctags.vim"]
 	path = bundle/tagbar-phpctags.vim
 	url = https://github.com/vim-php/tagbar-phpctags.vim
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = https://github.com/shawncplus/phpcomplete.vim
