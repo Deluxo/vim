@@ -67,3 +67,9 @@
 [submodule "bundle/vim-table-mode"]
 	path = bundle/vim-table-mode
 	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "bundle/vim-matchit"]
+	path = bundle/vim-matchit
+	url = https://github.com/adelarsq/vim-matchit
+[submodule "bundle/tagbar-phpctags.vim"]
+	path = bundle/tagbar-phpctags.vim
+	url = https://github.com/vim-php/tagbar-phpctags.vim
