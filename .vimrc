@@ -7,15 +7,22 @@ filetype indent on
 let mapleader = '`'
 nnoremap <c-_> :let @/ = ""<CR>
 nnoremap <leader>s :%sno/<c-r><c-w>//g<Left><Left>
+nnoremap <leader>ss :%s///gc<CR>
 vnoremap <leader>s :sno///g<Left><Left><Left>
 map <leader>cp :let @+ = expand("%:p")
 map <leader>cn :let @+ = expand("%:t")
 vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
+map <silent> <Esc><Esc> :wa<CR>
 nnoremap WW :wa<CR>
+nnoremap <Backspace> :wa<CR>
 nnoremap dD V$%d
 nnoremap yY V$%y
 "window management"
+map <leader>hh <c-w>20<
+map <leader>ll <c-w>20>
+map <leader>jj <c-w>10+
+map <leader>kk <c-w>10-
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
@@ -31,6 +38,7 @@ map <Insert> :Gpush<CR>
 map <Delete> :Gpull<CR>
 map <PageUp> :Obsession! ~/.vim/session.vim<CR>
 map <PageDown> :source ~/.vim/session.vim<CR>
+map <leader>ft :set ft=
 
 "SETTINGS"
 "search"
