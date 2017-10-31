@@ -81,18 +81,19 @@ color simpleton
 
 "VIM-Plug
 call plug#begin('~/.vim/plugged')
-"Plug 'fatih/vim-go'
-"Plug 'mattn/emmet-vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
-Plug 'jreybert/vimagit'
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
-Plug 'prabirshrestha/asyncomplete.vim' | Plug 'prabirshrestha/async.vim' | Plug 'prabirshrestha/vim-lsp' | Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-
+Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
+Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
+Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
 call plug#end()

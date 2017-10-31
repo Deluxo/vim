@@ -1,2 +1,3 @@
 nnoremap <c-f> :Files<CR>
-nnoremap <c-a> :Ag 
+nnoremap <c-b> :Buffers<CR>
+nnoremap <c-g> :Ag 
