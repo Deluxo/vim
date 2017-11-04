@@ -81,8 +81,7 @@ color simpleton
 
 "VIM-Plug
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
@@ -91,7 +90,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for' : 'go'}
 Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}

@@ -17,3 +17,4 @@ hi DiffDelete ctermfg=0
 hi DiffChange ctermbg=3
 hi DiffChange ctermfg=0
 hi StatusLine cterm=none,bold
+hi SpellBad ctermfg=0
