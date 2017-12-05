@@ -77,7 +77,13 @@ set guioptions-=T "remove toolbar
 set guioptions-=r "remove right-hand scroll bar
 set guioptions-=L "remove left-hand scroll bar
 
-color termschool
+set termguicolors
+
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+
+color ayu
 
 "VIM-Plug
 call plug#begin('~/.vim/plugged')
