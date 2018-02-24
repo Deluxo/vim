@@ -83,7 +83,8 @@ exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE"
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
+"exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
+exe "hi! Normal"        .s:fg_fg          .s:fmt_none       .s:fmt_none
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 " Conceal, Cursor, CursorIM
 exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none

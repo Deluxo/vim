@@ -21,6 +21,9 @@ vnoremap <s-k> :m '<-2<CR>gv=gv
 " Save
 nnoremap WW :wa<CR>
 
+" Fold everything except current line
+nnoremap <leader>zv :normal mazMzv`a<CR><bar>:normal zO<CR>
+
 "window management"
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-k> :wincmd k<CR>
