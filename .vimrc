@@ -5,6 +5,7 @@ filetype indent on
 "editing"
 let mapleader = '`'
 nnoremap <c-_> :let @/ = ""<CR>
+noremap <space><space> <C-[> \| :wa<CR>
 
 " Search & replace
 nnoremap <leader>s :%sno/<c-r><c-w>//gc<Left><Left><Left>
@@ -19,7 +20,7 @@ vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
 
 " Save
-nnoremap WW :wa<CR>
+noremap WW :wa<CR>
 
 " Fold everything except current line
 nnoremap <leader>zv :normal mazMzv`a<CR><bar>:normal zO<CR>
@@ -83,25 +84,37 @@ set guioptions-=L "remove left-hand scroll bar
 set termguicolors
 
 "let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
 
 color ayu
 
 "VIM-Plug
 call plug#begin('~/.vim/plugged')
-Plug 'mattn/emmet-vim', {'for': 'html'}
+Plug 'junegunn/goyo.vim'
 Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
-Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
 Plug 'fatih/vim-go', {'for' : 'go'}
+Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
 Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
+Plug 'godlygeek/tabular', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+" SNIPPETS
+Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+
+" PHP
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
+Plug 'w0rp/ale'
+Plug 'ervandew/supertab'
+"Plug 'Valloric/YouCompleteMe'
+
 call plug#end()

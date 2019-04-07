@@ -30,11 +30,11 @@ let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#
 let s:palette.error     = {'dark': "#FF3333",  'light': "#FF3333",  'mirage': "#FF3333"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
 let s:palette.panel     = {'dark': "#14191F",  'light': "#FFFFFF",  'mirage': "#272D38"}
-let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
+let s:palette.guide     = {'dark': "#687E95",  'light': "#D9D8D7",  'mirage': "#3D4751"}
 let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
 let s:palette.selection = {'dark': "#253340",  'light': "#F0EEE4",  'mirage': "#343F4C"}
 let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
-let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
+let s:palette.fg_idle   = {'dark': "#687E95",  'light': "#828C99",  'mirage': "#607080"}
 
 "}}}
 
@@ -106,7 +106,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 exe "hi! MatchParen"    .s:fg_bg          .s:bg_fg          .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_bg          .s:bg_none        .s:fmt_none
+exe "hi! NonText"       .s:fg_selection          .s:bg_none        .s:fmt_none
 exe "hi! Pmenu"         .s:fg_fg          .s:bg_selection   .s:fmt_none
 exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
