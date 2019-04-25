@@ -5,7 +5,8 @@ filetype indent on
 "editing"
 let mapleader = '`'
 nnoremap <c-_> :let @/ = ""<CR>
-noremap <space><space> <C-[> \| :wa<CR>
+inoremap <space><space> <C-[> \| :wa<CR>
+vnoremap <space><space> <C-[> \| :wa<CR>
 
 " Search & replace
 nnoremap <leader>s :%sno/<c-r><c-w>//gc<Left><Left><Left>
