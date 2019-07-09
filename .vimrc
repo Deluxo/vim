@@ -98,15 +98,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'fatih/vim-go', {'for' : 'go'}
-Plug 'mattn/emmet-vim', {'for': 'html'}
-Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
+Plug 'vim-syntastic/syntastic'
+Plug 'valsorym/vim-colorizer'
+Plug 'myitcv/govim', {'for' : 'go'}
+Plug 'mattn/emmet-vim', {'for': ['html', 'twig']}
+Plug 'Quramy/tsuquyomi', {'for': ['typescript']}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
 Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'flowtype/vim-flow', {'for': 'javascript'}
 
 " SNIPPETS
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -116,6 +119,11 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
-"Plug 'Valloric/YouCompleteMe'
+"
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+
+" Java & Kotlin
+Plug 'hsanson/vim-android', {'for': 'java'}
 
 call plug#end()
