@@ -1,5 +1,5 @@
-syntax on filetype plugin indent on
-filetype indent on
+syntax on
+filetype plugin indent on
 
 "CUSTOM MAPPINGS"
 "editing"
@@ -21,7 +21,7 @@ vnoremap <s-j> :m '>+1<CR>gv=gv
 vnoremap <s-k> :m '<-2<CR>gv=gv
 
 " Save
-noremap WW :wa<CR>
+noremap WW :w<CR>
 
 " Fold everything except current line
 nnoremap <leader>zv :normal mazMzv`a<CR><bar>:normal zO<CR>
@@ -33,6 +33,11 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 map <F3> :set scb!<CR>
 map QQ :bd<CR>
+
+nnoremap <silent> <Leader>wk :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>wj :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>wl :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>wh :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 "usability"
 nnoremap Q <Nop>
@@ -61,11 +66,12 @@ set autoindent
 set smartindent
 
 "presentability"
+set redrawtime=10000
 set wrap
 set linebreak
 set foldmethod=indent
 set foldlevel=0
-set nofoldenable
+"set nofoldenable
 set list
 set listchars=tab:│\ ,trail:•,eol:¬
 set ttyfast
@@ -77,45 +83,68 @@ set wildmenu
 set background=dark
 set tabstop=4
 set shiftwidth=4
-set guioptions-=m "remove menu bar
-set guioptions-=T "remove toolbar
-set guioptions-=r "remove right-hand scroll bar
-set guioptions-=L "remove left-hand scroll bar
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 set termguicolors
 
-"let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
 
 color ayu
 
 "VIM-Plug
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/goyo.vim'
+call plug#begin('/home/lukas/.vim/plugged')
 Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
-Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'fatih/vim-go', {'for' : 'go'}
-Plug 'mattn/emmet-vim', {'for': 'html'}
-Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
-Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
-Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
-Plug 'godlygeek/tabular', {'for': 'markdown'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-flow.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'prabirshrestha/asyncomplete-gocode.vim'
+Plug 'runoshun/tscompletejob'
 
 " SNIPPETS
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
+Plug 'tsufeki/tenkawa-php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --no-dev && php bin/tenkawa.php --build-index'}
+Plug 'alvan/vim-php-manual', {'for': 'php'}
 
-Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
-"Plug 'Valloric/YouCompleteMe'
+" MARKDOWN
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'godlygeek/tabular', {'for': 'markdown'}
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+
+
+" DISABLED
+"Plug 'w0rp/ale'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+"Plug 'ervandew/supertab'
+"Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+"Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+"Plug 'posva/vim-vue', {'for': ['vue']}
+"Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+"Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
+"Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
+"Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
+"Plug 'mattn/emmet-vim', {'for': ['html']}
+"Plug 'fatih/vim-go', {'for' : 'go'}
+
+Plug 'janko/vim-test'
 
 call plug#end()

@@ -18,7 +18,7 @@ let g:phpactorPhpBin = "/usr/bin/php"
 " End of php-cs-fixer version 1 config params
 
 " If you use php-cs-fixer version 2.x
-let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_rules = "@PSR2,@Symfony"          " options: --rules (default:@PSR2)
 "let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
 "let g:php_cs_fixer_config_file = '.php_cs' " options: --config
 " End of php-cs-fixer version 2 config params
@@ -31,9 +31,53 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
-let g:ale_linters = {'php': ['php-cs-fixer', 'phpactor']}
-let g:ale_fixers = {'php': ['php-cs-fixer', 'phpactor']}
+let g:ale_linters = {'php': ['php', 'php-cs-fixer']}
+let g:ale_fixers = {'php': ['php', 'php-cs-fixer']}
+
+let g:snips_author = "Lukas Levickas @ Synergy Effect"
 
 au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+
+" PHPACTOR
+
+" Include use statement
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+
+" Invoke the context menu
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+
+" Invoke the navigation menu
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+" Show brief information about the symbol under the cursor
+nmap <Leader>K :call phpactor#Hover()<CR>
+
+" Transform the classes in the current file
+nmap <Leader>tt :call phpactor#Transform()<CR>
+
+" Generate a new class (replacing the current file)
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+
+" Extract expression (normal mode)
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+
+" Extract expression from selection
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+" Extract method from selection
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+
+let g:php_manual_online_search_shortcut = "<leader><s-k>"
+
+
+" TESTING
+nmap <silent> tn :w<CR> :TestNearest<CR>
+nmap <silent> tf :w<CR> :TestFile<CR>
+nmap <silent> ts :w<CR> :TestSuite<CR>
+nmap <silent> tl :w<CR> :TestLast<CR>
+nmap <silent> tg :w<CR> :TestVisit<CR>

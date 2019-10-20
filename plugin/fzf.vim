@@ -1,7 +1,7 @@
 nnoremap <c-f> :Files<CR>
 nnoremap <c-b> :Buffers<CR>
 nnoremap <leader>bt :BTags<CR>
-nnoremap <c-g> :Ag 
+nnoremap <c-g> :Ag! <c-r><c-w>
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_colors =
