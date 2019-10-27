@@ -5,8 +5,8 @@ filetype plugin indent on
 "editing"
 let mapleader = '`'
 nnoremap <c-_> :let @/ = ""<CR>
-inoremap <space><space> <C-[> \| :wa<CR>
-vnoremap <space><space> <C-[> \| :wa<CR>
+"inoremap <space><space> <C-[> \| :wa<CR>
+"vnoremap <space><space> <C-[> \| :wa<CR>
 
 " Search & replace
 nnoremap <leader>s :%sno/<c-r><c-w>//gc<Left><Left><Left>
@@ -89,10 +89,9 @@ set guioptions-=r
 set guioptions-=L
 
 set termguicolors
-
-let ayucolor="mirage" " for mirage version of theme
-
-color ayu
+"let ayucolor="mirage" " for mirage version of theme
+"color ayu
+color gruvbox-material
 
 "VIM-Plug
 call plug#begin('/home/lukas/.vim/plugged')
@@ -100,7 +99,10 @@ Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
+" LSP & ASYNCOMPLETE
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -119,6 +121,7 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
 Plug 'tsufeki/tenkawa-php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --no-dev && php bin/tenkawa.php --build-index'}
 Plug 'alvan/vim-php-manual', {'for': 'php'}
+Plug 'janko/vim-test'
 
 " MARKDOWN
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -126,25 +129,9 @@ Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
+" COLOR
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-
-
-" DISABLED
-"Plug 'w0rp/ale'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-"Plug 'ervandew/supertab'
-"Plug 'thomasfaingnaert/vim-lsp-ultisnips'
-"Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-"Plug 'posva/vim-vue', {'for': ['vue']}
-"Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-"Plug 'Quramy/tsuquyomi', {'for': ['typescript', 'javascript']}
-"Plug 'Quramy/vim-js-pretty-template', {'for': ['typescript', 'javascript']}
-"Plug 'jason0x43/vim-js-indent', {'for': ['typescript', 'javascript']}
-"Plug 'mattn/emmet-vim', {'for': ['html']}
-"Plug 'fatih/vim-go', {'for' : 'go'}
-
-Plug 'janko/vim-test'
+Plug 'sainnhe/gruvbox-material'
 
 call plug#end()

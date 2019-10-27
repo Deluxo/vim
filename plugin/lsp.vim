@@ -5,30 +5,16 @@ let g:lsp_diagnostics_echo_cursor = 1
 "let g:lsp_fold_enabled = 1
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '‼'}
-let g:lsp_signs_hint = {'text': '!'}
+let g:lsp_signs_hint = {'text': '#'}
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled = 1
+let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_popup_delay = 200
 
 "set foldmethod=expr
 			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
 			"\ foldtext=lsp#ui#vim#folding#foldtext()
-
-" COMPLETION
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_popup_delay = 700
-set completeopt+=preview
-
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-"autocmd CursorHold *.php,*.twig,*.js,*.ts silent! LspHover
-
-nnoremap <leader><space> :silent! LspHover<CR>
-set updatetime=1000
 
 " LANGUAGES
 au User lsp_setup call lsp#register_server({
@@ -122,3 +108,28 @@ if executable(expand('~/lsp/KotlinLanguageServer/server-0.1.13/bin/server'))
 				\ 'whitelist': ['kotlin']
 				\ })
 endif
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+autocmd CursorHold *.php,*.twig,*.js,*.ts silent! LspHover
+nnoremap <leader><space> :silent! LspHover<CR>
+
+" COMPLETION
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+set completeopt+=preview
+
+set updatetime=1000
+
