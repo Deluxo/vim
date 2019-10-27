@@ -119,9 +119,9 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
-Plug 'tsufeki/tenkawa-php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --no-dev && php bin/tenkawa.php --build-index'}
+Plug 'felixfbecker/php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
 Plug 'alvan/vim-php-manual', {'for': 'php'}
-Plug 'janko/vim-test'
+Plug 'janko/vim-test', {'for': 'php'}
 
 " MARKDOWN
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}

@@ -1,4 +1,6 @@
 " LSP GENERALs
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
@@ -12,14 +14,12 @@ let g:lsp_textprop_enabled = 1
 let g:asyncomplete_auto_popup = 0
 let g:asyncomplete_popup_delay = 200
 
-"set foldmethod=expr
-			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
-			"\ foldtext=lsp#ui#vim#folding#foldtext()
-
 " LANGUAGES
+
+" Plug 'https://github.com/felixfbecker/php-language-server'
 au User lsp_setup call lsp#register_server({
-			\ 'name': 'tenkawa',
-			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/tenkawa-php-language-server/bin/tenkawa.php']},
+			\ 'name': 'phpLanguageServer',
+			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/php-language-server/bin/php-language-server.php']},
 			\ 'whitelist': ['php'],
 			\ })
 
@@ -110,26 +110,24 @@ if executable(expand('~/lsp/KotlinLanguageServer/server-0.1.13/bin/server'))
 endif
 
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"autocmd CursorHold *.php,*.twig,*.js,*.ts silent! LspHover
 
-autocmd CursorHold *.php,*.twig,*.js,*.ts silent! LspHover
-nnoremap <leader><space> :silent! LspHover<CR>
-
-" COMPLETION
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <space> :silent! LspHover<CR>
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-set completeopt+=preview
 
+set completeopt+=preview
 set updatetime=1000
 
+"set foldmethod=expr
+			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
+			"\ foldtext=lsp#ui#vim#folding#foldtext()
