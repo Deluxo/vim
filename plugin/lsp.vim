@@ -4,24 +4,39 @@
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-"let g:lsp_fold_enabled = 1
+let g:lsp_fold_enabled = 1
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '‼'}
 let g:lsp_signs_hint = {'text': '#'}
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled = 1
-let g:asyncomplete_auto_popup = 0
-let g:asyncomplete_popup_delay = 200
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_popup_delay = 500
 
 " LANGUAGES
+
+"https://github.com/prabirshrestha/vim-lsp/wiki/Servers-PHP
+"au User lsp_setup call lsp#register_server({
+"			\ 'name': 'intelephense',
+"			\ 'cmd': {server_info->['node', expand('/home/lukas/.config/yarn/global/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
+"			\ 'initialization_options': {"storagePath": "/tmp/intelephense"},
+"			\ 'whitelist': ['php'],
+"			\ })
 
 " Plug 'https://github.com/felixfbecker/php-language-server'
 au User lsp_setup call lsp#register_server({
 			\ 'name': 'phpLanguageServer',
-			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/php-language-server/bin/php-language-server.php']},
+			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/tenkawa-php-language-server/bin/tenkawa.php']},
 			\ 'whitelist': ['php'],
 			\ })
+
+" Plug 'https://github.com/felixfbecker/php-language-server'
+"au User lsp_setup call lsp#register_server({
+"			\ 'name': 'phpLanguageServer',
+"			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/php-language-server/bin/php-language-server.php']},
+"			\ 'whitelist': ['php'],
+"			\ })
 
 " Plug 'prabirshrestha/asyncomplete-flow.vim'
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#flow#get_source_options({
@@ -57,7 +72,7 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 			\ }))
 
 " Plug 'prabirshrestha/asyncomplete-gocode.vim'
-call asyncomplete#register_source(asyncomplete#sources#gocode#get_source_options({
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#gocode#get_source_options({
 			\ 'name': 'gocode',
 			\ 'whitelist': ['go'],
 			\ 'completor': function('asyncomplete#sources#gocode#completor'),
@@ -72,43 +87,6 @@ if executable('docker-langserver')
 				\ })
 endif
 
-" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Kotlin
-if executable('java') && filereadable(expand('~/lsp/eclipse.jdt.ls/plugins/org.eclipse.equinox.launcher_1.5.300.v20190213-1655.jar'))
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'eclipse.jdt.ls',
-				\ 'cmd': {server_info->[
-				\     'java',
-				\     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-				\     '-Dosgi.bundles.defaultStartLevel=4',
-				\     '-Declipse.product=org.eclipse.jdt.ls.core.product',
-				\     '-Dlog.level=ALL',
-				\     '-noverify',
-				\     '-Dfile.encoding=UTF-8',
-				\     '-Xmx1G',
-				\     '-jar',
-				\     expand('~/lsp/eclipse.jdt.ls/plugins/org.eclipse.equinox.launcher_1.5.300.v20190213-1655.jar'),
-				\     '-configuration',
-				\     expand('~/lsp/eclipse.jdt.ls/config_linux'),
-				\     '-data',
-				\     getcwd()
-				\ ]},
-				\ 'whitelist': ['java'],
-				\ })
-endif
-
-" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Kotlin
-if executable(expand('~/lsp/KotlinLanguageServer/server-0.1.13/bin/server'))
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'KotlinLanguageServer',
-				\ 'cmd': {server_info->[
-				\     &shell,
-				\     &shellcmdflag,
-				\     expand('~/lsp/KotlinLanguageServer/server-0.1.13/bin/server')
-				\ ]},
-				\ 'whitelist': ['kotlin']
-				\ })
-endif
-
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~ '\s'
@@ -117,7 +95,7 @@ endfunction
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "autocmd CursorHold *.php,*.twig,*.js,*.ts silent! LspHover
 
-nnoremap <space> :silent! LspHover<CR>
+nnoremap <leader><space> :silent! LspHover<CR>
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
@@ -131,3 +109,14 @@ set updatetime=1000
 "set foldmethod=expr
 			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
 			"\ foldtext=lsp#ui#vim#folding#foldtext()
+
+" VISTA
+let g:vista_executive_for = {
+			\ 'php': 'vim_lsp',
+			\ }
+function! NearestMethodOrFunction() abort
+	let a = get(b:, 'vista_nearest_method_or_function', '')
+	return empty(a) ? '' : '#'.a
+endfunction
+set statusline=%f\ %{NearestMethodOrFunction()}\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()

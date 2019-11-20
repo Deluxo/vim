@@ -23,3 +23,5 @@ nmap <silent> tf :w<CR> :TestFile<CR>
 nmap <silent> ts :w<CR> :TestSuite<CR>
 nmap <silent> tl :w<CR> :TestLast<CR>
 nmap <silent> tg :w<CR> :TestVisit<CR>
+nmap <silent> tw :w<CR> :!php ./vendor/bin/codecept run wpunit<CR>
+nmap <silent> tww :w<CR> :!php ./vendor/bin/codecept run wpunit %:<cword><CR>

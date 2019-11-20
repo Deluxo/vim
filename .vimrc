@@ -41,7 +41,6 @@ nnoremap <silent> <Leader>wh :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 "usability"
 nnoremap Q <Nop>
-map <F11> : !ctags
 map <Insert> :Gpush<CR>
 map <Delete> :Gpull<CR>
 
@@ -67,7 +66,7 @@ set smartindent
 
 "presentability"
 set redrawtime=10000
-set wrap
+"set wrap
 set linebreak
 set foldmethod=indent
 set foldlevel=0
@@ -89,9 +88,7 @@ set guioptions-=r
 set guioptions-=L
 
 set termguicolors
-"let ayucolor="mirage" " for mirage version of theme
-"color ayu
-color gruvbox-material
+let test#enabled_runners = ["php#codeception"]
 
 "VIM-Plug
 call plug#begin('/home/lukas/.vim/plugged')
@@ -100,7 +97,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
+Plug 'janko/vim-test'
 
 " LSP & ASYNCOMPLETE
 Plug 'prabirshrestha/async.vim'
@@ -113,21 +110,22 @@ Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 Plug 'prabirshrestha/asyncomplete-gocode.vim'
 Plug 'runoshun/tscompletejob'
+Plug 'liuchengxu/vista.vim'
 
 " SNIPPETS
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
-Plug 'felixfbecker/php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
+"Plug 'felixfbecker/php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
+Plug 'tsufeki/tenkawa-php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
 Plug 'alvan/vim-php-manual', {'for': 'php'}
-Plug 'janko/vim-test', {'for': 'php'}
 
 " MARKDOWN
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+"Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " COLOR
 Plug 'rakr/vim-one'
@@ -135,3 +133,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
+
+let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_background = 'hard'
+color gruvbox-material
+hi CursorLine guibg=#202931
