@@ -16,6 +16,10 @@ au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
+function! NearestMethodOrFunction() abort
+	let a = get(b:, 'vista_nearest_method_or_function', '')
+	return empty(a) ? '' : '#'.a
+endfunction
 
 " TESTING
 nmap <silent> tn :w<CR> :TestNearest<CR>
@@ -24,4 +28,4 @@ nmap <silent> ts :w<CR> :TestSuite<CR>
 nmap <silent> tl :w<CR> :TestLast<CR>
 nmap <silent> tg :w<CR> :TestVisit<CR>
 nmap <silent> tw :w<CR> :!php ./vendor/bin/codecept run wpunit<CR>
-nmap <silent> tww :w<CR> :!php ./vendor/bin/codecept run wpunit %:<cword><CR>
+nmap <silent> tww :w<CR> :!php ./vendor/bin/codecept run wpunit :NearestMethodOrFunction<CR>

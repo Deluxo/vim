@@ -109,14 +109,3 @@ set updatetime=1000
 "set foldmethod=expr
 			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
 			"\ foldtext=lsp#ui#vim#folding#foldtext()
-
-" VISTA
-let g:vista_executive_for = {
-			\ 'php': 'vim_lsp',
-			\ }
-function! NearestMethodOrFunction() abort
-	let a = get(b:, 'vista_nearest_method_or_function', '')
-	return empty(a) ? '' : '#'.a
-endfunction
-set statusline=%f\ %{NearestMethodOrFunction()}\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
