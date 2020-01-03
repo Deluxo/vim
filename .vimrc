@@ -66,7 +66,7 @@ set smartindent
 
 "presentability"
 set redrawtime=10000
-"set wrap
+set wrap!
 set linebreak
 set foldmethod=indent
 set foldlevel=0
@@ -97,19 +97,20 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'janko/vim-test'
+Plug 'janko/vim-test', {'for': 'php'}
 
 " LSP & ASYNCOMPLETE
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-flow.vim'
+Plug 'prabirshrestha/asyncomplete-flow.vim', {'for': ['javascript', 'typescript']}
 Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
+Plug 'prabirshrestha/asyncomplete-tscompletejob.vim', {'for': 'typescript'}
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-Plug 'prabirshrestha/asyncomplete-gocode.vim'
-Plug 'runoshun/tscompletejob'
+Plug 'prabirshrestha/asyncomplete-gocode.vim', {'for': 'go'}
+Plug 'FuDesign2008/vim-lsp-vue', {'for': 'vue'}
+" Plug 'runoshun/tscompletejob'
 Plug 'liuchengxu/vista.vim'
 
 " SNIPPETS
@@ -117,24 +118,30 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
-"Plug 'felixfbecker/php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
 Plug 'tsufeki/tenkawa-php-language-server', {'for': 'php_i_dont_want_it_to_run', 'do': 'composer install --do-dev'}
 Plug 'alvan/vim-php-manual', {'for': 'php'}
+
+"VUE
+Plug 'posva/vim-vue', {'for': 'vue'}
 
 " MARKDOWN
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-"Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " COLOR
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/gruvbox-material'
+Plug 'altercation/vim-colors-solarized'
+Plug 'artanikin/vim-synthwave84'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_background = 'hard'
-color gruvbox-material
-hi CursorLine guibg=#202931
+let ayucolor="dark"
+
+color ayu
+"hi CursorLine guibg=#24201e

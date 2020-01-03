@@ -8,9 +8,9 @@ autocmd FileType vista,vista_kind nnoremap <buffer> <silent> / :<c-u>call vista#
 let g:vista_executive_for = {
 			\ 'php': 'vim_lsp',
 			\ }
-function! NearestMethodOrFunction() abort
-	let a = get(b:, 'vista_nearest_method_or_function', '')
-	return empty(a) ? '' : '#'.a
-endfunction
-set statusline=%f\ %{NearestMethodOrFunction()}\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+"function! NearestMethodOrFunction() abort
+	"let a = get(b:, 'vista_nearest_method_or_function', '')
+	"return empty(a) ? '' : '#'.a
+"endfunction
+"set statusline=%f\ %{NearestMethodOrFunction()}\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
+"autocmd VimEnter * call vista#RunForNearestMethodOrFunction()

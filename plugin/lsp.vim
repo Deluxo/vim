@@ -11,18 +11,10 @@ let g:lsp_signs_hint = {'text': '#'}
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled = 1
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_popup_delay = 500
+let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_popup_delay = 1000
 
 " LANGUAGES
-
-"https://github.com/prabirshrestha/vim-lsp/wiki/Servers-PHP
-"au User lsp_setup call lsp#register_server({
-"			\ 'name': 'intelephense',
-"			\ 'cmd': {server_info->['node', expand('/home/lukas/.config/yarn/global/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
-"			\ 'initialization_options': {"storagePath": "/tmp/intelephense"},
-"			\ 'whitelist': ['php'],
-"			\ })
 
 " Plug 'https://github.com/felixfbecker/php-language-server'
 au User lsp_setup call lsp#register_server({
@@ -30,13 +22,6 @@ au User lsp_setup call lsp#register_server({
 			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/tenkawa-php-language-server/bin/tenkawa.php']},
 			\ 'whitelist': ['php'],
 			\ })
-
-" Plug 'https://github.com/felixfbecker/php-language-server'
-"au User lsp_setup call lsp#register_server({
-"			\ 'name': 'phpLanguageServer',
-"			\ 'cmd': {server_info->['php', '/home/lukas/.vim/plugged/php-language-server/bin/php-language-server.php']},
-"			\ 'whitelist': ['php'],
-"			\ })
 
 " Plug 'prabirshrestha/asyncomplete-flow.vim'
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#flow#get_source_options({
@@ -78,6 +63,13 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 			\ 'completor': function('asyncomplete#sources#gocode#completor'),
 			\ }))
 
+"Plug 'FuDesign2008/vim-lsp-vue'
+au User lsp_setup call lsp#register_server({
+			\ 'name': 'vue-language-server',
+			\ 'cmd': {server_info->['vls']},
+			\ 'whitelist': ['vue', '--stdio']
+			\ })
+
 " https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Docker
 if executable('docker-langserver')
 	au User lsp_setup call lsp#register_server({
@@ -105,7 +97,3 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 set completeopt+=preview
 set updatetime=1000
-
-"set foldmethod=expr
-			"\ foldexpr=lsp#ui#vim#folding#foldexpr()
-			"\ foldtext=lsp#ui#vim#folding#foldtext()

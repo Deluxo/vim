@@ -4,10 +4,10 @@ au FileType javascript setl expandtab shiftwidth=2 softtabstop=2
 au FileType vue setl expandtab shiftwidth=2 softtabstop=2
 au FileType yaml setl expandtab shiftwidth=2 softtabstop=2
 
-au TextChanged * silent! write
-au TextChangedI * silent! write
-au TextYankPost * silent! write
+"au TextChanged * silent! write
+"au TextChangedI * silent! write
+"au TextYankPost * silent! write
 
 "au CursorHoldI * stopinsert
-"au CursorHold * silent! wa
+au CursorHold * silent! wa
 "au CursorHoldI * silent! wa
