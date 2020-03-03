@@ -73,13 +73,13 @@ set foldlevel=0
 "set nofoldenable
 set list
 set listchars=tab:│\ ,trail:•,eol:¬
+set fillchars+=vert:│
 set ttyfast
 set cursorline
 set synmaxcol=500
 set t_Co=256
 set wildmode=full
 set wildmenu
-set background=dark
 set tabstop=4
 set shiftwidth=4
 set guioptions-=m
@@ -96,7 +96,7 @@ Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags', {'for': 'php'}
 Plug 'janko/vim-test', {'for': 'php'}
 
 " LSP & ASYNCOMPLETE
@@ -106,7 +106,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-flow.vim', {'for': ['javascript', 'typescript']}
 Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-tscompletejob.vim', {'for': 'typescript'}
+Plug 'prabirshrestha/asyncomplete-tscompletejob.vim', {'for': ['javascript', 'typescript']}
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 Plug 'prabirshrestha/asyncomplete-gocode.vim', {'for': 'go'}
 Plug 'FuDesign2008/vim-lsp-vue', {'for': 'vue'}
@@ -139,9 +139,13 @@ Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
+set background=dark
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_visual = 'reverse'
+let g:gruvbox_material_palette = 'original'
 let ayucolor="dark"
 
-color ayu
+color gruvbox-material
 "hi CursorLine guibg=#24201e
