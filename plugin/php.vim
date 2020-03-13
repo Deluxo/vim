@@ -2,7 +2,6 @@
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_php_path = "/usr/bin/php"
 let g:php_cs_fixer_rules = "@PSR2,@Symfony"
-let g:php_manual_online_search_shortcut = "<leader><s-k>"
 let g:snips_author = "Lukas Levickas @ Synergy Effect"
 
 au FileType php noremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
@@ -10,16 +9,8 @@ au FileType php nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 au FileType php setl expandtab shiftwidth=4 softtabstop=4
 au FileType php set colorcolumn=120
 au FileType php nmap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
-au FileType php nmap <c-]> :LspDefinition<CR>
-
-au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
-
-function! NearestMethodOrFunction() abort
-	let a = get(b:, 'vista_nearest_method_or_function', '')
-	return empty(a) ? '' : '#'.a
-endfunction
+au FileType php syntax clear phpHereDoc
+au FileType php syntax clear phpFloat
 
 " TESTING
 nmap <silent> tn :w<CR> :TestNearest<CR>
