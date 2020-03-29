@@ -1,3 +1,8 @@
 {
-	"vetur.dev.vlsPath": "/home/lukas/.config/yarn/global/node_modules/vls"
+	"vetur.dev.vlsPath": "/home/lukas/.config/yarn/global/node_modules/vls",
+	"coc.preferences.jumpCommand": "tabe",
+	"npm.binPath": "yarn",
+	"cSpellExt.enableDictionaries": ["lithuanian"],
+	"cSpell.language": "en,lt"
+
 }

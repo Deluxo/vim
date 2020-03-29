@@ -72,7 +72,7 @@ syntax sync fromstart
 set wrap!
 set linebreak
 set foldmethod=indent
-set foldlevel=0
+set foldlevel=10
 "set nofoldenable
 set list
 set listchars=tab:│\ ,trail:•,eol:¬
@@ -109,9 +109,6 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
-
-"VUE
-"Plug 'posva/vim-vue', {'for': 'vue'}
 
 " COLOR
 Plug 'rakr/vim-one'
