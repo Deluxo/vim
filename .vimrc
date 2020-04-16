@@ -91,7 +91,7 @@ set guioptions-=r
 set guioptions-=L
 
 set termguicolors
-let test#enabled_runners = ["php#codeception"]
+let test#enabled_runners = ["php#codeception", "php#phpunit"]
 
 "VIM-Plug
 call plug#begin('/home/lukas/.vim/plugged')
@@ -117,6 +117,9 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'altercation/vim-colors-solarized'
 Plug 'artanikin/vim-synthwave84'
 Plug 'ayu-theme/ayu-vim'
+
+" MARKDOWN
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
