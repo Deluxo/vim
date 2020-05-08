@@ -104,18 +104,24 @@ let g:forest_night_transparent_background = 1
 let g:dracula_colorterm = 0
 
 let g:coc_global_extensions = [
-      \'coc-cspell-dicts',
       \'coc-css',
+      \'coc-cssmodules',
       \'coc-docker',
+      \'coc-flow',
+      \'coc-git',
+      \'coc-highlight',
       \'coc-html',
       \'coc-json',
       \'coc-markdownlint',
       \'coc-phpls',
       \'coc-spell-checker',
+      \'coc-cspell-dicts',
+      \'coc-svg',
       \'coc-tailwindcss',
       \'coc-tsserver',
       \'coc-ultisnips',
       \'coc-vetur',
+      \'coc-yaml'
       \]
 
 "VIM-Plug
