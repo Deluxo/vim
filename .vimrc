@@ -117,6 +117,9 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'altercation/vim-colors-solarized'
 Plug 'artanikin/vim-synthwave84'
 Plug 'ayu-theme/ayu-vim'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/forest-night'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " MARKDOWN
 Plug 'godlygeek/tabular'
@@ -130,6 +133,8 @@ let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_visual = 'reverse'
 let g:gruvbox_material_palette = 'original'
 let ayucolor="dark"
+let g:edge_transparent_background = 1
+let g:forest_night_transparent_background = 1
+let g:dracula_colorterm = 0
 
-color gruvbox-material
-"hi CursorLine guibg=#24201e
+color dracula

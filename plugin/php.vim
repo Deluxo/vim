@@ -20,4 +20,4 @@ nmap <silent> tl :w<CR> :TestLast<CR>
 nmap <silent> tg :w<CR> :TestVisit<CR>
 nmap <silent> tw :w<CR> :!php ./vendor/bin/codecept run wpunit %<CR>
 nmap <silent> tww :w<CR> :!php ./vendor/bin/codecept run wpunit %:<cword><CR>
-let test#php#codeception#options = '-f'
+let test#php#codeception#options = '-f -v'
