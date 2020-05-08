@@ -101,7 +101,13 @@ let g:gruvbox_material_palette = 'original'
 let ayucolor="dark"
 let g:edge_transparent_background = 1
 let g:forest_night_transparent_background = 1
+
 let g:dracula_colorterm = 0
+let g:dracula_bold = 1
+let g:dracula_italic = 1
+let g:dracula_underline = 1
+let g:dracula_undercurl = 1
+let g:dracula_inverse = 1
 
 let g:coc_global_extensions = [
       \'coc-css',
