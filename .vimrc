@@ -92,9 +92,35 @@ set guioptions-=L
 
 set termguicolors
 let test#enabled_runners = ["php#codeception", "php#phpunit"]
+set background=dark
+let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_visual = 'reverse'
+let g:gruvbox_material_palette = 'original'
+let ayucolor="dark"
+let g:edge_transparent_background = 1
+let g:forest_night_transparent_background = 1
+let g:dracula_colorterm = 0
+
+let g:coc_global_extensions = [
+      \'coc-cspell-dicts',
+      \'coc-css',
+      \'coc-docker',
+      \'coc-html',
+      \'coc-json',
+      \'coc-markdownlint',
+      \'coc-phpls',
+      \'coc-spell-checker',
+      \'coc-tailwindcss',
+      \'coc-tsserver',
+      \'coc-ultisnips',
+      \'coc-vetur',
+      \]
 
 "VIM-Plug
 call plug#begin('/home/lukas/.vim/plugged')
+
 Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
@@ -125,16 +151,5 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'godlygeek/tabular'
 
 call plug#end()
-
-set background=dark
-let g:gruvbox_material_transparent_background = 1
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_visual = 'reverse'
-let g:gruvbox_material_palette = 'original'
-let ayucolor="dark"
-let g:edge_transparent_background = 1
-let g:forest_night_transparent_background = 1
-let g:dracula_colorterm = 0
 
 color dracula
