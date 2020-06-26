@@ -98,7 +98,7 @@ let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_visual = 'reverse'
 let g:gruvbox_material_palette = 'original'
-let ayucolor="dark"
+let ayucolor="mirage"
 let g:edge_transparent_background = 1
 let g:forest_night_transparent_background = 1
 
@@ -108,6 +108,8 @@ let g:dracula_italic = 1
 let g:dracula_underline = 1
 let g:dracula_undercurl = 1
 let g:dracula_inverse = 1
+let base16colorspace=256
+
 
 let g:coc_global_extensions = [
       \'coc-css',
@@ -137,7 +139,7 @@ Plug 'airblade/vim-gitgutter' | Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'janko/vim-test', {'for': 'php'}
+Plug 'janko/vim-test'
 
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -158,10 +160,21 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sainnhe/edge'
 Plug 'sainnhe/forest-night'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'chriskempson/base16-vim'
 
 " MARKDOWN
 Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color dracula
+color base16-dracula
+
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
+
+" Wayland clipboard workaround
+vmap y y<CR>:call system("wl-copy", @")<CR>
