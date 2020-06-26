@@ -102,12 +102,6 @@ let ayucolor="mirage"
 let g:edge_transparent_background = 1
 let g:forest_night_transparent_background = 1
 
-let g:dracula_colorterm = 0
-let g:dracula_bold = 1
-let g:dracula_italic = 1
-let g:dracula_underline = 1
-let g:dracula_undercurl = 1
-let g:dracula_inverse = 1
 let base16colorspace=256
 
 
@@ -159,7 +153,6 @@ Plug 'artanikin/vim-synthwave84'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sainnhe/edge'
 Plug 'sainnhe/forest-night'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chriskempson/base16-vim'
 
 " MARKDOWN
@@ -177,4 +170,4 @@ hi Comment cterm=italic
 hi Type    cterm=italic
 
 " Wayland clipboard workaround
-vmap y y<CR>:call system("wl-copy", @")<CR>
+vmap <silent> y y:call system("wl-copy", @@)<CR>
