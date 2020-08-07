@@ -160,7 +160,7 @@ Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color base16-dracula
+color forest-night
 
 hi htmlArg gui=italic
 hi Comment gui=italic
@@ -170,4 +170,4 @@ hi Comment cterm=italic
 hi Type    cterm=italic
 
 " Wayland clipboard workaround
-vmap <silent> y y:call system("wl-copy", @@)<CR>
+vmap <silent> <leader>y y:call system("wl-copy", @@)<CR>
