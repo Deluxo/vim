@@ -41,6 +41,10 @@ nnoremap <silent> <Leader>wj :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>wl :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>wh :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
+"quickfix
+nnoremap cn :cnext<CR>
+nnoremap cN :cprevious<CR>
+
 "usability"
 nnoremap Q <Nop>
 map <Insert> :Gpush<CR>
@@ -89,20 +93,20 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-
-set termguicolors
-let test#enabled_runners = ["php#codeception", "php#phpunit"]
 set background=dark
-let g:gruvbox_material_transparent_background = 1
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_visual = 'reverse'
-let g:gruvbox_material_palette = 'original'
+set termguicolors
+
 let ayucolor="mirage"
+let base16colorspace=256
 let g:edge_transparent_background = 1
 let g:forest_night_transparent_background = 1
-
-let base16colorspace=256
+let g:fzf_session_path = $HOME . '/.vim/session'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_palette = 'original'
+let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_visual = 'reverse'
+let test#enabled_runners = ["php#codeception", "php#phpunit"]
 
 
 let g:coc_global_extensions = [
@@ -134,6 +138,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'janko/vim-test'
+Plug 'dominickng/fzf-session.vim'
 
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -160,7 +165,7 @@ Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color base16-dracula
+color ayu
 
 hi htmlArg gui=italic
 hi Comment gui=italic
@@ -168,6 +173,7 @@ hi Type    gui=italic
 hi htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
+hi SignColumn ctermbg=none guibg=NONE
 
 " Wayland clipboard workaround
-vmap <silent> y y:call system("wl-copy", @@)<CR>
+vmap <silent> <leader>yy:call system("wl-copy", @@)<CR>
