@@ -34,6 +34,7 @@ nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 map <F3> :set scb!<CR>
+map <F2> :set wrap!<CR>
 map QQ :bd<CR>
 
 nnoremap <silent> <Leader>wk :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -176,4 +177,4 @@ hi Type    cterm=italic
 hi SignColumn ctermbg=none guibg=NONE
 
 " Wayland clipboard workaround
-vmap <silent> <leader>yy:call system("wl-copy", @@)<CR>
+vmap <silent> <leader>y y:call system("wl-copy", @@)<CR>
