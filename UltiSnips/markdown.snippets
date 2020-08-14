@@ -1,0 +1,31 @@
+priority -50
+
+snippet adr "Architectural Decision record"
+# ${1:${VISUAL:GIT-REF}} ${2:${VISUAL:Short Descriptive title}}
+
+**Date**: `date +%Y-%m-%d`
+
+**Status**: ${3:${VISUAL:[ proposed | rejected | accepted | deprecated | superseded | ... ]}}
+
+## Context
+
+${4:${VISUAL:Describe the context and problem statement, e.g.,
+in free form using two to three sentences.
+You may want to articulate the problem in form of a question.}}
+
+## Decision Drivers
+
+${5:${VISUAL:* Picked decision reason 1
+* Picked decision reason 2}}
+
+## Considered Options
+
+${6:${VISUAL:* Considered option reason 1
+* Considered option reason 2}}
+
+## Consequences
+
+${7:${VISUAL:Write down what may be additional consequences for the decision...}}
+endsnippet
+
+# vim:ft=snippets:
