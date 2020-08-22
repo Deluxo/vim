@@ -62,6 +62,8 @@ set hlsearch
 set viminfo+=n/tmp/viminfo
 set noswapfile
 set scrolloff=10
+set sidescroll=1
+set sidescrolloff=40
 set relativenumber
 set fileencodings=utf-8
 set encoding=utf-8
@@ -173,7 +175,7 @@ Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color base16-oceanicnext
+color ayu
 
 hi htmlArg gui=italic
 hi Comment gui=italic
