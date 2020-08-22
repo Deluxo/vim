@@ -109,11 +109,17 @@ let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_visual = 'reverse'
 let test#enabled_runners = ["php#codeception", "php#phpunit"]
 
+if !exists('g:vdebug_options')
+	let g:vdebug_options = {}
+endif
+
+let g:vdebug_options.port = 9002
 
 let g:coc_global_extensions = [
       \'coc-css',
       \'coc-cssmodules',
       \'coc-docker',
+      \'coc-explorer',
       \'coc-flow',
       \'coc-git',
       \'coc-highlight',
@@ -149,6 +155,7 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 " PHP
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
+Plug 'vim-vdebug/vdebug', {'for': 'php'}
 
 " COLOR
 Plug 'rakr/vim-one'
@@ -166,7 +173,7 @@ Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color ayu
+color base16-oceanicnext
 
 hi htmlArg gui=italic
 hi Comment gui=italic

@@ -3,5 +3,6 @@
 	"coc.preferences.jumpCommand": "tabe",
 	"npm.binPath": "yarn",
 	"cSpellExt.enableDictionaries": ["lithuanian"],
-	"cSpell.language": "en,lt"
+	"cSpell.language": "en,lt",
+	"explorer.icon.enableNerdfont": true
 }

@@ -8,3 +8,5 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 20
 let g:netrw_ctags='gtags'
 let g:netrw_usetab=1
+
+map <s-Tab> :CocCommand explorer<CR>
