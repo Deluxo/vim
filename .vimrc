@@ -100,16 +100,9 @@ set background=dark
 set termguicolors
 
 let ayucolor="mirage"
-let base16colorspace=256
-let g:edge_transparent_background = 1
-let g:forest_night_transparent_background = 1
 let g:fzf_session_path = $HOME . '/.vim/session'
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_palette = 'original'
-let g:gruvbox_material_transparent_background = 1
-let g:gruvbox_material_visual = 'reverse'
 let test#enabled_runners = ["php#codeception", "php#phpunit"]
+let g:palenight_terminal_italics=1
 
 if !exists('g:vdebug_options')
 	let g:vdebug_options = {}
@@ -132,7 +125,6 @@ let g:coc_global_extensions = [
       \'coc-spell-checker',
       \'coc-cspell-dicts',
       \'coc-svg',
-      \'coc-tailwindcss',
       \'coc-tsserver',
       \'coc-ultisnips',
       \'coc-vetur',
@@ -151,6 +143,8 @@ Plug 'dominickng/fzf-session.vim'
 
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+
 
 " SNIPPETS
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -160,22 +154,15 @@ Plug 'stephpy/vim-php-cs-fixer', {'for': 'php', 'do': 'composer install'}
 Plug 'vim-vdebug/vdebug', {'for': 'php'}
 
 " COLOR
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
-Plug 'sainnhe/gruvbox-material'
-Plug 'altercation/vim-colors-solarized'
-Plug 'artanikin/vim-synthwave84'
 Plug 'ayu-theme/ayu-vim'
-Plug 'sainnhe/edge'
-Plug 'sainnhe/forest-night'
-Plug 'chriskempson/base16-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " MARKDOWN
 Plug 'godlygeek/tabular'
 
 call plug#end()
 
-color ayu
+colorscheme palenight
 
 hi htmlArg gui=italic
 hi Comment gui=italic
@@ -184,6 +171,7 @@ hi htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
 hi SignColumn ctermbg=none guibg=NONE
+hi Normal ctermbg=none guibg=NONE
 
 " Wayland clipboard workaround
 vmap <silent> <leader>y y:call system("wl-copy", @@)<CR>
